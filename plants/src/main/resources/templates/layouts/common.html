@@ -27,12 +27,12 @@
 				<div id="navbarCollapse" class="collapse navbar-collapse" >
 					<ul class="nav navbar-nav" style="vertical-align: middle;">
 						
-						<li><a href="/home"><img th:src="@{/images/logo.png}" height="40"></img></a></li>
-						<li><a href="/plants/">View All</a></li>
-						<li><a href="/plants/search">Search</a></li>
+						<li><a th:href="@{/home}"><img th:src="@{/images/logo.png}" height="40"></img></a></li>
+						<li><a th:href="@{/plants/}">View All</a></li>
+						<li><a th:href="@{/plants/search}">Search</a></li>
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
-						<li><a href="/plants/new">Add Entry</a></li>
+						<li><a th:href="@{/plants/input}">Add Entry</a></li>
 						
 					</ul>
 				</div>

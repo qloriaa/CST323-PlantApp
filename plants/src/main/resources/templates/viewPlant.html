@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorate="~{layouts/defaultTemplate}">
+
+<body>
+    <div layout:fragment="content" class="container">
+
+        <table>
+            <tr>
+                <th>Index : </th>
+                <td>
+                    <p class="card-text" th:text="${plant.getId()}">Index</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Common Name : </th>
+                <td>
+                    <p class="card-text" th:text="${plant.getName()}">Name </p>
+                </td>
+            </tr>
+            <tr>
+                <th>Scientific Name : </th>
+                <td>
+                    <p class="card-text" th:text="${plant.getSciName()}">Scientific Name</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Description : </th>
+                <td>
+                    <p class="card-text" th:text="${plant.getDescription()}">Description</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a th:href="@{/plants/update/{id}(id=${plant.getId()})}">
+                        <button class="btn btn-info">Update</button>
+                    </a>
+                    
+                    <a th:href="@{/plants/delete/{id}(id=${plant.getId()})}">
+                        <button class="btn btn-danger">Delete</button>
+                    </a>
+                </td>
+            </tr>
+        </table>
+
+    </div>
+
+</body>
+
+</html>

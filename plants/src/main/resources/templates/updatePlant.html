@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorate="~{layouts/defaultTemplate}">
+
+<body>
+    <div layout:fragment="content" class="container">
+        <h4 style="margin: auto;">Update Plant Entry</h4>
+
+        <!-- Form input fields. -->
+        <div class="entry-form">
+            <form class="form-default" th:action="@{/plants/input}" th:object="${plant}" method="post">
+                <div class="form-group" hidden>
+                    <input type="number" th:field="*{id}" class="form-control" th:classappend="${#fields.hasErrors('id')} ? 'is-invalid' : ''">
+                    <span class="error" th:if="${#fields.hasErrors('id')}" th:errors="*{id}"></span>
+                </div>
+                <div class="form-group">
+                    <input type="text" th:field="*{name}" placeholder="Common Name" class="form-control" th:classappend="${#fields.hasErrors('name')} ? 'is-invalid' : ''">
+                    <span class="error" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
+                </div>
+                <div class="form-group">
+                    <input type="text" th:field="*{sciName}" placeholder="Scientific Name" class="form-control" th:classappend="${#fields.hasErrors('sciName')} ? 'is-invalid' : ''">
+                    <span class="error" th:if="${#fields.hasErrors('sciName')}" th:errors="*{sciName}"></span>
+                </div>
+                <div class="form-group">
+                    <input type="text" th:field="*{famName}" placeholder="Family Name" class="form-control" th:classappend="${#fields.hasErrors('famName')} ? 'is-invalid' : ''">
+                    <span class="error" th:if="${#fields.hasErrors('famName')}" th:errors="*{famName}"></span>
+                </div>
+                <div class="form-group">
+                    <input type="text" th:field="*{description}" placeholder="Description" class="form-control" th:classappend="${#fields.hasErrors('description')} ? 'is-invalid' : ''">
+                    <span class="error" th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></span>
+                </div>
+
+                     
+                <div class="form-group">
+                    <input type="submit" value="Submit" class="btn btn-primary">
+                    <a th:href="@{/plants/delete/{id}(id=${plant.getId()})}"><button type="button" class="btn btn-danger">Delete</button></a>
+                </div>
+ 
+                <!-- Error message for user. -->
+                <div th:if="${#fields.hasErrors('*')}" class="error general-error">
+                    <p>Please correct the errors and resubmit.</p>
+                </div>
+
+            </form>
+        </div>
+             
+    </div>
+</body>
+
+</html>

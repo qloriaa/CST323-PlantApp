@@ -1,0 +1,62 @@
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="layouts/defaultTemplate">
+
+<head>
+	<meta charset="UTF-8">
+	<title>List</title>
+
+</head>
+
+<body>
+	<div layout:fragment="content" class="container">
+
+		<!-- IF  :  Empty List output -->
+		<div th:if="${#lists.isEmpty(plants)}">
+			<h4> { No Plant Entries Found. } </h4>
+		</div>
+
+		<!-- ELSE  :  Traverse Plant list to display. -->
+		<div th:unless="${#lists.isEmpty(plants)}" class="plant-list">
+			<div class="d-flex flex-column">
+				<table>
+					<!-- Table headers -->
+					<thead>
+						<tr>
+							<th>Index :</th>
+							<th>Common Name :</th>
+							<th>Scientific Name :</th>
+							<th></th>
+						</tr>
+					</thead>
+
+					<!-- Table entries -->
+					<tbody>
+						<div th:each="plant : ${plants}" class="card">
+							<div class="card-body">
+								<tr>
+									<td>
+										<p class="card-text" th:text="${plant.getId()}">Index</p>
+									</td>
+									<td>
+										<p class="card-text" th:text="${plant.getName()}">Name </p>
+									</td>
+									<td>
+										<p class="card-text" th:text="${plant.getSciName()}">Scientific Name</p>
+									</td>
+									<td>
+										<a th:href="@{/plants/view/{id}(id=${plant.getId()})}">
+											<button class="btn btn-info">View</button>
+										</a>
+									</td>
+								</tr>
+							</div>
+						</div>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+
+	</body>
+
+</html>

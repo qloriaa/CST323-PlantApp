@@ -18,7 +18,7 @@ public class HomeController {
 	 */
     @GetMapping("/")
 	public String display(Model model) {
-		model.addAttribute("title", "Home Form");
+		model.addAttribute("title", "Welcome!!");
 		
 		return "index";
 	}
@@ -32,7 +32,7 @@ public class HomeController {
 	 */
 	@GetMapping("/home")
 	public String displayHome(Model model) {
-		model.addAttribute("title", "Home Page");
+		model.addAttribute("title", "Home");
 
 		return "index";
 	}
