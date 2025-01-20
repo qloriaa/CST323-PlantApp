@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/ed8c391b-03c5-45ab-a3c2-96a1a92a5944/resourceGroups/CST232-Activity/providers/Microsoft.Web/sites/PlantDictionary",
+    "appService.deploySubpath": "."
+}

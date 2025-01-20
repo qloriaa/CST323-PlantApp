@@ -8,7 +8,7 @@
 
         <!-- Form input fields. -->
         <div class="entry-form">
-            <form class="form-default" th:action="@{/plants/input}" th:object="${plant}" method="post">
+            <form class="form-default" th:action="@{/plants/update}" th:object="${plant}" method="post">
                 <div class="form-group" hidden>
                     <input type="number" th:field="*{id}" class="form-control" th:classappend="${#fields.hasErrors('id')} ? 'is-invalid' : ''">
                     <span class="error" th:if="${#fields.hasErrors('id')}" th:errors="*{id}"></span>

@@ -88,7 +88,7 @@ public class PlantController {
 		model.addAttribute("title", "Update Plant Entry");
 		model.addAttribute("plant", plant);
 
-		return "updatePlant";
+		return ("updatePlant");
 	}
 	
 	/***
@@ -108,7 +108,7 @@ public class PlantController {
 			model.addAttribute("plant", plant);
 
 			// Errors found, reload page for user input
-			return ("updatePlant" + plant.getId().toString());
+			return ("updatePlant");
 		}
 
 		// No Errors found
